@@ -13,7 +13,7 @@ while True:
         oldbg = bg.time
         valdiff = bg.mg_dl / oldbgval
         oldbgval = bg.mg_dl
-        if valdiff >= 1.1 or valdiff <= 0.9: #condition to only make notification if difference in glucose has changed by 10 or more percent
+        if valdiff >= 1.1 or valdiff <= 0.9 or bg.mg_dl < 90: #condition to only make notification if difference in glucose has changed by 10 or more percent, or if current val is lower than 90mg/dL
             notification.notify( 
             title='WinDexcom',
             message=f'{bg.time}\nGlucose is {bg.mg_dl}mg/dL\nYou are {bg.trend_description}\nDifference is {valdiff}',
